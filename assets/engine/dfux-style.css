@@ -1,35 +1,74 @@
 
 #dfux-scope { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1e293b; }
 #dfux-scope * { box-sizing: border-box; }
-#dfux-scope .dfux-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin: 2rem 0; overflow: hidden; max-width: 800px; margin-left: auto; margin-right: auto; }
-#dfux-scope .dfux-header { background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-#dfux-scope .dfux-score-box { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 15px; text-align: center; min-width: 80px; }
+
+/* CARD CONTAINER */
+#dfux-scope .dfux-card { 
+    background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); margin: 2rem 0; overflow: hidden; 
+    max-width: 800px; margin-left: auto; margin-right: auto;
+}
+
+/* LOCK HEADER (SIGNATURE) */
+#dfux-scope .dfux-lock {
+    background: #0f172a; color: #94a3b8; font-size: 0.7rem; text-transform: uppercase; 
+    letter-spacing: 1px; padding: 6px 1.5rem; font-weight: 700; border-bottom: 1px solid #334155;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+/* MAIN HEADER */
+#dfux-scope .dfux-header { 
+    background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 1.5rem; 
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; 
+}
+
+/* SCORE BOX */
+#dfux-scope .dfux-score-box { 
+    background: #fff; border: 2px solid #cbd5e1; border-radius: 12px; 
+    padding: 10px 0; text-align: center; min-width: 90px;
+}
 #dfux-scope .dfux-score-box.s-high { border-color: #22c55e; color: #15803d; }
 #dfux-scope .dfux-score-box.s-med { border-color: #eab308; color: #a16207; }
 #dfux-scope .dfux-score-box.s-low { border-color: #ef4444; color: #b91c1c; }
-#dfux-scope .score-val { font-size: 2rem; font-weight: 800; line-height: 1; display: block; margin: 0; }
-#dfux-scope .score-max { font-size: 0.8rem; color: #64748b; font-weight: 500; display: block; margin: 0; }
-#dfux-scope .verdict-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; font-weight: 600; display: block; margin-bottom: 4px; }
-#dfux-scope .verdict-badge { font-size: 1.1rem; font-weight: 700; margin: 4px 0; color: #0f172a; }
-#dfux-scope .confidence-level { font-size: 0.85rem; color: #475569; display: block; margin-top: 4px; }
+
+#dfux-scope .score-val { font-size: 2.2rem; font-weight: 900; line-height: 1; display: block; margin: 0; }
+#dfux-scope .score-max { font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-top: 2px; }
+
+/* VERDICT TEXT */
+#dfux-scope .verdict-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; font-weight: 700; margin-bottom: 4px; }
+#dfux-scope .verdict-badge { font-size: 1.25rem; font-weight: 800; margin: 4px 0; color: #0f172a; line-height: 1.2; }
+#dfux-scope .confidence-level { font-size: 0.8rem; color: #475569; display: inline-block; background: #e2e8f0; padding: 2px 8px; border-radius: 4px; margin-top: 6px; }
+
+/* BODY */
 #dfux-scope .dfux-body { padding: 1.5rem; }
-#dfux-scope .dfux-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-#dfux-scope h4 { margin: 0 0 1rem 0; font-size: 0.9rem; text-transform: uppercase; color: #475569; border-bottom: 2px solid #f1f5f9; padding-bottom: 5px; display: inline-block; font-weight: 700; }
+#dfux-scope .dfux-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+#dfux-scope h4 { margin: 0 0 1rem 0; font-size: 0.85rem; text-transform: uppercase; color: #64748b; border-bottom: 2px solid #f1f5f9; padding-bottom: 6px; font-weight: 800; letter-spacing: 0.5px; }
+
 #dfux-scope ul { list-style: none; padding: 0; margin: 0; }
-#dfux-scope li { margin-bottom: 0.5rem; padding-left: 0; position: relative; font-size: 0.95rem; line-height: 1.5; color: #334155; }
-#dfux-scope .col-pros li { padding-left: 1.2rem; }
-#dfux-scope .col-pros li::before { content: "✔"; color: #22c55e; position: absolute; left: 0; font-weight: bold; }
-#dfux-scope .col-cons li { padding-left: 1.2rem; }
-#dfux-scope .col-cons li::before { content: "✖"; color: #ef4444; position: absolute; left: 0; font-weight: bold; }
-#dfux-scope .muted { font-style: italic; color: #94a3b8; }
-#dfux-scope .dfux-divider { border: 0; border-top: 1px dashed #e2e8f0; margin: 2rem 0; }
-#dfux-scope .dfux-meta-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; font-size: 0.85rem; }
-#dfux-scope .src-type { font-weight: 600; color: #0f172a; text-transform: capitalize; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; }
-#dfux-scope .test-badges { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-#dfux-scope .t-badge { padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
-#dfux-scope .t-yes { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-#dfux-scope .t-no { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
-#dfux-scope .usage-note, #dfux-scope .bias-note { margin-top: 6px; color: #475569; display: block; }
+#dfux-scope li { margin-bottom: 0.6rem; padding-left: 0; position: relative; font-size: 0.95rem; line-height: 1.5; color: #334155; }
+
+/* ICONS */
+#dfux-scope .col-pros li { padding-left: 1.4rem; }
+#dfux-scope .col-pros li::before { content: "✔"; color: #22c55e; position: absolute; left: 0; font-weight: 900; }
+#dfux-scope .col-cons li { padding-left: 1.4rem; }
+#dfux-scope .col-cons li::before { content: "✖"; color: #ef4444; position: absolute; left: 0; font-weight: 900; }
+#dfux-scope .muted { font-style: italic; color: #94a3b8; padding-left: 0 !important; }
+
+/* TRUST & META GRID (THE GAME CHANGER) */
+#dfux-scope .dfux-divider { border: 0; border-top: 1px dashed #e2e8f0; margin: 0; }
+#dfux-scope .dfux-meta-grid { 
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; 
+    background: #f8fafc; padding: 1.5rem; border-top: 1px solid #e2e8f0; font-size: 0.85rem; 
+}
+
+#dfux-scope .src-type { font-weight: 700; color: #0f172a; text-transform: capitalize; background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-right: 5px; }
+#dfux-scope .trust-badge { margin-bottom: 10px; font-weight: 600; color: #475569; }
+
+#dfux-scope .test-row { margin-bottom: 8px; display: flex; align-items: baseline; gap: 8px; }
+#dfux-scope .label { font-weight: 700; color: #64748b; font-size: 0.75rem; width: 70px; flex-shrink: 0; }
+#dfux-scope .value { color: #334155; }
+#dfux-scope .value.not-tested { color: #94a3b8; font-style: italic; }
+
 @media (max-width: 768px) {
     #dfux-scope .dfux-header { flex-direction: column; text-align: center; gap: 1rem; }
     #dfux-scope .dfux-score-box { width: 100%; }
