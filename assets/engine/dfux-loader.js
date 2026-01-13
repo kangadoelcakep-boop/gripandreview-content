@@ -11,7 +11,8 @@
         // Coba 2: Cari Textarea apapun yang punya ciri-ciri IDS
         const textareas = document.getElementsByTagName('textarea');
         for (let t of textareas) {
-            if (t.value.includes('"ids_version": "1.2"') || t.textContent.includes('"ids_version": "1.2"')) {
+            if (t.value.includes('"ids_version"') && t.value.includes('"editorial_summary"'))
+ || t.textContent.includes('"ids_version": "1.2"')) {
                 return t.value || t.textContent;
             }
         }
@@ -88,11 +89,33 @@
                 <div class="dfux-trust">
                   <h4>🔍 Sumber Data</h4>
                   <ul>${trust.sources.map(s => `<li><span class="src-type">${s.type}</span> ${s.reference.substring(0,40)}...</li>`).join("")}</ul>
+                    <div class="trust-badge">
+                      Metode: <em>${trust.methodology_note || "Tidak dijelaskan"}</em>
+                    </div>
+
+                    <div class="trust-badge">
+                      Konflik Reviewer: <strong>${trust.bias_indicator.reviewer_conflict || "none"}</strong>
+                    </div>
                 </div>
                 <div class="dfux-test-info">
                   <h4>🧪 Cakupan Tes</h4>
-                  <div>Diuji: <strong>${test.performed_tests.slice(0,3).join(", ")}...</strong></div>
-                  <div>Bias: <strong>${biasLabel}</strong></div>
+
+                  <div class="test-row">
+                    <span class="label">Diuji</span>
+                    <span class="value"><strong>${test.performed_tests.slice(0,3).join(", ") || "—"}</strong></span>
+                  </div>
+
+                  <div class="test-row">
+                    <span class="label">Tidak diuji</span>
+                    <span class="value not-tested">
+                      ${test.not_tested && test.not_tested.length ? test.not_tested.join(", ") : "—"}
+                    </span>
+                  </div>
+
+                  <div class="trust-badge">
+                    Bias: ${biasLabel} |
+                    Sponsor: <strong>${trust.bias_indicator.sponsored ? 'YA' : 'TIDAK'}</strong>
+                  </div>
                 </div>
               </div>
             </div>
