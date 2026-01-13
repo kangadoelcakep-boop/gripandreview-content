@@ -11,9 +11,12 @@
         // Coba 2: Cari Textarea apapun yang punya ciri-ciri IDS
         const textareas = document.getElementsByTagName('textarea');
         for (let t of textareas) {
-            if (t.value.includes('"ids_version"') && t.value.includes('"editorial_summary"'))
- || t.textContent.includes('"ids_version": "1.2"')) {
-                return t.value || t.textContent;
+            const val = t.value || t.textContent || "";
+            if (
+                val.includes('"ids_version"') &&
+                val.includes('"editorial_summary"')
+            ) {
+                return val;
             }
         }
 
